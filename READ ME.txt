@@ -1,0 +1,27 @@
+Pengembangan Website Menu Makanan Bergizi Seimbang untuk Balita
+
+Tugas Akhir
+oleh Tanya Nuhaisy Wulandari (18320017)
+
+Git ini berisikan source code dan dataset yang digunakan dalam tugas akhir ini.
+
+Dengan detail file pada Git ini adalah
+1. AKG.xlsx (dataset AKG)
+2. Dataset_Makanan.xlsx (Dataset makanan)
+3. Kode_Obj5.py (source code optimasi dengan 5 objektif)
+4. Kode_Obj17.py (source code optimasi dengan 17 objektif)
+
+Dengan 1 folder Website yang berisikan source code untuk website Toddler Meal Planner.
+Folder website berisikan
+1. app.py (source code logika website)
+2. AKG.xlsx (dataset AKG)
+3. Dataset_Makanan.xlsx (Dataset makanan)
+4. templates (folder source code tampilan website)
+a. landing (source code tampilan Halaman Utama)
+b. index (source code tampilan Halaman Input Data)
+c. akg (source code tampilan Halaman Target Gizi Harian)
+d. result (source code tampilan Halaman Output Menu Makanan)
+e. error (source code tampilan Halaman Error)
+
+
+

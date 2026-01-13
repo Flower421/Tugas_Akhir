@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Toddler Meal Planner</title>
+    <style>
+		/* Mengatur tampilan layar dan latar belakang */
+        body { 
+			font-family: 'Segoe UI', sans-serif; 
+			background-color: #f0f2f5; 
+			padding: 20px; 
+		}
+		
+		/* Mengatur tulisan judul */
+        h1 { 
+			text-align: center; 
+			color: #333; 
+			margin-bottom: 30px; 
+		}
+        
+		/* Mengatur tampilan kotak konten */
+        .card { 
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: center; 
+            gap: 20px; 
+        }
+        
+		/* Mengatur tampilan kotak konten menu harian */
+        .day-card {
+            background: white; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            width: 340px; 
+            padding: 20px; 
+            border-top: 6px solid #007bff;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: space-between;
+            transition: transform 0.2s;
+        }
+		
+		/* Mengatur pergerakan kotak konten menu harian */
+        .day-card:hover { transform: translateY(-5px); }
+		
+		/* Mengatur judul kotak konten menu harian */
+        .day-title { 
+            font-size: 1.4em; 
+            font-weight: 800; 
+            margin-bottom: 20px; 
+            text-align: center; 
+            color: #007bff; 
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 10px;
+        }
+		
+		/* Mengatur tampilan menu makanan per waktu makan */
+        .meal-section { margin-bottom: 15px; }
+		
+        /* Mengatur judul menu makanan per waktu makan */
+        .meal-label { 
+            font-weight: 700; 
+            color: #444; 
+            font-size: 0.95em;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+		
+		/* Mengatur tampilan makanan dalam menu makanan */
+        .food-list {
+            padding-left: 0;
+            margin: 0;
+            list-style: none;
+        }
+        /* Mengatur tulisan makanan dalam menu makanan */
+        .food-item {
+            font-size: 0.9em;
+            color: #555;
+            padding: 4px 0;
+            border-bottom: 1px dashed #eee; /* Garis putus-putus tipis */
+            line-height: 1.4;
+        }
+        
+        .food-item:last-child { border-bottom: none; }
+        
+		/* Mengatur tampilan kotak nutrisi menu makanan */
+        .stats-box {
+            margin-top: 20px; 
+            background-color: #f0f7ff; 
+            padding: 12px;
+            border-radius: 8px; 
+            font-size: 0.85em; 
+            color: #0d47a1;
+            border: 1px solid #cce5ff;
+        }
+		/* Mengatur judul kotak nutrisi menu makanan */
+        .stats-title { 
+            font-weight: bold; 
+            margin-bottom: 8px; 
+            text-align: center; 
+            border-bottom: 1px solid #b8daff; 
+            padding-bottom: 5px;
+        }
+		/* Mengatur tampilan konten kotak nutrisi menu makanan */
+        .stats-grid { 
+			display: grid; 
+			grid-template-columns: 1fr 1fr; 
+			gap: 8px; 
+		}
+        
+		/* Mengatur tampilan tombol "Buat Menu Baru" */
+        .btn-back { 
+            display: block; 
+			width: 220px; 
+			margin: 40px auto; 
+			padding: 12px; 
+			text-align: center; 
+			background-color: #007bff; 
+            color: white;  
+            text-decoration: none; 
+			border-radius: 50px; 
+			font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background 0.3s;
+        }
+		/* Mengatur pergerakan tombol "Buat Menu Baru" */
+        .btn-back:hover { background-color: #0056b3; }
+		
+    </style>
+</head>
+<body>
+
+    <h1>📅 Rekomendasi Menu Mingguan 📅</h1>
+    
+    <div class="card">
+        {% set nama_hari = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'] %}
+
+        {% for day_menu in menu %}
+        <div class="day-card">
+            <div>
+                <div class="day-title">{{ nama_hari[loop.index0] }}</div>
+                
+                <div class="meal-section">
+                    <div class="meal-label">🍳 Sarapan</div>
+                    <div class="food-list">
+                        {% for item in day_menu['Sarapan'] %}
+                        <div class="food-item">• {{ item }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                <div class="meal-section">
+                    <div class="meal-label">🍏 Snack Pagi</div>
+                    <div class="food-list">
+                        {% for item in day_menu['Snack Pagi'] %}
+                        <div class="food-item">• {{ item }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="meal-section">
+                    <div class="meal-label">🍛 Makan Siang</div>
+                    <div class="food-list">
+                        {% for item in day_menu['Makan Siang'] %}
+                        <div class="food-item">• {{ item }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="meal-section">
+                    <div class="meal-label">🍪 Snack Sore</div>
+                    <div class="food-list">
+                        {% for item in day_menu['Snack Sore'] %}
+                        <div class="food-item">• {{ item }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="meal-section">
+                    <div class="meal-label">🍲 Makan Malam</div>
+                    <div class="food-list">
+                        {% for item in day_menu['Makan Malam'] %}
+                        <div class="food-item">• {{ item }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="stats-box">
+                <div class="stats-title">Total Gizi Hari Ini</div>
+                <div class="stats-grid">
+                    <div>Kalori : <b>{{ day_menu.total_kalori }}</b> kkal</div>
+                    <div>Protein : {{ day_menu.total_protein }}g</div>
+                    <div>Lemak : {{ day_menu.total_lemak }}g</div>
+                    <div>Karbohidrat : {{ day_menu.total_karbo }}g</div>
+                    <div>Serat : {{ day_menu.total_serat }}g</div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <a href="/mulai" class="btn-back">« Buat Menu Baru</a>
+
+</body>
+</html>

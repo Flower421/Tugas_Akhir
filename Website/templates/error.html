@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Gagal Membuat Menu</title>
+    <style>
+		/* Mengatur tampilan layar dan latar belakang */
+        body { 
+			font-family: sans-serif; 
+			text-align: center; 
+			padding: 40px; 
+			background-color: #fff; 
+		}
+		
+		/* Mengatur tampilan tulisan judul */
+        h1 { 
+			color: #dc3545; 
+			margin-bottom: 10px; 
+			font-size: 24px; 
+		}
+		
+		/* Mengatur tampilan kotak konten */
+        .card { 
+			border: 1px solid #ddd; 
+			padding: 30px; 
+			border-radius: 10px; 
+			max-width: 500px; 
+			margin: 0 auto; 
+			box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+		}
+        
+		/* Mengatur tampilan ikon error */
+        .icon { 
+			font-size: 60px; 
+			margin-bottom: 20px; 
+			display: block; 
+		}
+		
+		/* Mengatur tampilan tulisan */
+        p { 
+			color: #555; 
+			line-height: 1.6; 
+			margin-bottom: 25px; 
+		}
+
+		/* Mengatur tampilan tombol "Ulangi Buat Menu" */
+        .btn-process { 
+            display: inline-block;
+            background-color: #dc3545; /* Merah */
+            color: white; 
+            padding: 12px 25px; 
+            border: none; 
+            border-radius: 5px; 
+            font-size: 16px; 
+            cursor: pointer; 
+            text-decoration: none;
+            width: 100%; 
+            box-sizing: border-box; /* Agar padding tidak merusak lebar */
+        }
+		/* Mengatur pergerakan tombol "Ulangi Buat Menu" */
+        .btn-process:hover { 
+			background-color: #c82333; 
+		}
+
+		/* Mengatur tampilan tombol "kembali ke halaman depan" */
+        .btn-back {
+            text-decoration: none;
+            color: #6c757d;
+            font-weight: 600;
+            display: block;        
+            text-align: left;     
+            margin-top: 15px;      
+            transition: color 0.3s;
+            font-size: 14px;
+        }
+		
+		/* Mengatur pergerakan tombol "kembali ke halaman depan" */
+        .btn-back:hover {
+            color: #007bff; 
+        }
+		
+    </style>
+</head>
+<body>
+
+    <div id="content-error">
+        <div class="card">
+            <span class="icon">⚠️</span>
+            
+            <h1>Mohon Maaf!</h1>
+            
+            <p>
+                Sistem <strong>gagal</strong> menemukan kombinasi menu makanan untuk 7 hari penuh.
+            </p>
+            
+            <p style="font-size: 14px; background-color: #f8d7da; color: #721c24; padding: 10px; border-radius: 5px; border: 1px solid #f5c6cb;">
+                <strong>Saran :</strong> Terkadang sistem membutuhkan percobaan kedua untuk menemukan kombinasi yang pas. Silakan coba buat menu lagi.
+            </p>
+
+            <a href="/mulai" class="btn-process">« Ulangi Buat Menu</a>
+
+            <a href="/" class="btn-back">⬅ Kembali ke Halaman Depan</a>
+        </div>
+    </div>
+
+</body>
+</html>
