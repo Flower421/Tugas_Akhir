@@ -163,14 +163,14 @@ class Meal_Planning(ElementwiseProblem):
                          n_obj=5,   # Mendeklarasi objektif optimasi sebagai Target AKG 
                          n_ieq_constr=1,    # Mendeklarasi jumlah constraint 
                          xl=0,  # Mendeklarasi index pertama untuk calon solusi
-                         xu=len(data_makanan) - 1,  # Mendeklarasi index terakhir untuk calon solusi
+                         xu=len(self.data_makanan) - 1,  # Mendeklarasi index terakhir untuk calon solusi
                          vtype=int) # Mendeklarasi tipe variabel untuk calon solusi yaitu integer
 
     def _evaluate(self, x, out, *args, **kwargs):
         # Mendeklarasi calon solusi
         # Calon solusi dipilih dari dataset makanan, dan dipanggil sebagai indeks makanan terpilih pada dataset makanan
         x = [int(i) for i in x] 
-        pilih = data_makanan.iloc[x]
+        pilih = self.data_makanan.iloc[x]
 
         # Menghilangkan kolom pada dataset diluar kolom-kolom yang menyimpan data nutrisi
         # Kolom yang didrop antara lain adalah kolom "No", "Kode", "Nama Makanan", "Jenis", "Tipe", "gram", "URT_nominal", dan "URT_ukuran"
@@ -703,4 +703,5 @@ def generate():
 
 # Menjalankan website
 if __name__ == '__main__':
+
     app.run(debug=True)
